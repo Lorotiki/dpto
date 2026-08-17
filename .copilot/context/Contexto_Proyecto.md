@@ -51,7 +51,7 @@ src/main/java/com/consorcio/app/
 │   └── service/                 # Implementación de la lógica de negocio
 │
 └── infrastructure/              # Adaptadores de Entrada/Salida y Configuración
-    ├── a /
+    ├── io /
     │   ├── input/
     │   │   └── rest/            # Controllers, DTOs de request/response y Mappers
     │   └── output/
