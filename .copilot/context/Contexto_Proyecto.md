@@ -25,7 +25,7 @@ Por el momento, el sistema contempla un único tipo de usuario:
 ## 4. Stack Tecnológico
 
 * **Lenguaje:** Java 21.
-* **Framework Principal:** Spring Boot 3 (Spring Web, Spring Data JPA).
+* **Framework Principal:** Spring Boot 4.1 (Spring Web, Spring Data JPA).
 * **Base de Datos:** PostgreSQL.
 * **Herramienta de Construcción:** Maven (o Gradle).
 * **Migraciones de BD:** Flyway o Liquibase.
@@ -51,9 +51,29 @@ src/main/java/com/consorcio/app/
 │   └── service/                 # Implementación de la lógica de negocio
 │
 └── infrastructure/              # Adaptadores de Entrada/Salida y Configuración
-    ├── io /
+    ├── io/
     │   ├── input/
     │   │   └── rest/            # Controllers, DTOs de request/response y Mappers
     │   └── output/
     │       └── persistence/     # Entities JPA, Repositorios Spring Data y Adapters de persistencia
     └── config/                  # Configuración de Spring Beans y Beans de Dominio
+
+## 6. Implementación actual
+
+La base inicial quedó modelada con Lombok + JPA bajo `com.consorcio.app`:
+
+- `EdificioEntity` + `DireccionEmbeddable`
+- `DepartamentoEntity` + `DepartamentoEntityId`
+- `PersonaEntity` + `PersonaEntityId`
+- `PersonaDepartamentoEntity` + `PersonaDepartamentoEntityId`
+- `RolEntity`
+
+Repositorios disponibles:
+
+- `EdificioRepository`
+- `DepartamentoRepository`
+- `PersonaRepository`
+- `PersonaDepartamentoRepository`
+- `RolRepository`
+
+La clase principal quedó en `com.consorcio.app.DptoApplication` para que Spring escanee entidades y repositorios sin configuración extra.
